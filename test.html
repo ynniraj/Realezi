@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings</title>
+    <style>
+        /* Add your CSS styles here */
+        .propertyListingGrid {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filters .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            list-style: none;
+            padding: 10px;
+            width: 150px;
+        }
+        .dropdown-menu li {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .dropdown-menu li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="filters">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button">Property Type</button>
+            <ul class="dropdown-menu">
+                <li onclick="updateFilters('propertyType', 'Apartment')">Apartment</li>
+                <li onclick="updateFilters('propertyType', 'Duplex')">Duplex</li>
+                <li onclick="updateFilters('propertyType', 'Penthouse')">Penthouse</li>
+                <li onclick="updateFilters('propertyType', 'Villa')">Villa</li>
+                <li onclick="updateFilters('propertyType', 'Studio')">Studio</li>
+                <li onclick="updateFilters('propertyType', 'Independent')">Independent</li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button">BHK Type</button>
+            <ul class="dropdown-menu">
+                <li onclick="updateFilters('bhkType', '1RK')">1RK</li>
+                <li onclick="updateFilters('bhkType', '1BHK')">1BHK</li>
+                <li onclick="updateFilters('bhkType', '2BHK')">2BHK</li>
+                <li onclick="updateFilters('bhkType', '3BHK')">3BHK</li>
+                <li onclick="updateFilters('bhkType', '3.5BHK')">3.5BHK</li>
+                <li onclick="updateFilters('bhkType', '4BHK')">4BHK</li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button">Budget</button>
+            <ul class="dropdown-menu">
+                <li onclick="updateFilters('priceRange', '1 CR')">1 CR</li>
+                <!-- Add more budget options here -->
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button">Sale Type</button>
+            <ul class="dropdown-menu">
+                <li onclick="updateFilters('saleType', 'New projects')">New projects</li>
+                <li onclick="updateFilters('saleType', 'Resale projects')">Resale projects</li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button">Possession Stage</button>
+            <ul class="dropdown-menu">
+                <li onclick="updateFilters('possessionStage', 'Ready to move')">Ready to move</li>
+                <li onclick="updateFilters('possessionStage', 'Under construction')">Under construction</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="propertyListingsContainer"></div>
+
+    <script>
+        const properties = [
+            {
+                priceRange: "Rs. 2 Cr - Rs. 3.5 Cr",
+                propertyType: "Independents",
+                bhkType: "6 BHK",
+                area: "2100 sq. ft",
+                averagePricePerSqFt: "Rs. 6.65k/sq.ft",
+                possessionStage: "Under construction",
+                sizes: "900 sq.ft - 1400 sq.ft",
+                saleType: "New projects",
+                owner: "By Owner",
+                managedBy: "Managed by Realezi",
+                developer: "By Suri Buildtech",
+                developerType: "Developer",
+                image: "./assets/image/bedroom.png",
+                developerImage: "./assets/image/devimg.png",
+                btnType: "View Phone",
+                extra: true,
+            },
+            {
+                priceRange: "Rs. 2 Cr - Rs. 3.5 Cr",
+                propertyType: "Independents",
+                bhkType: "6 BHK",
+                area: "2100 sq. ft",
+                averagePricePerSqFt: "Rs. 6.65k/sq.ft",
+                possessionStage: "Under construction",
+                sizes: "900 sq.ft - 1400 sq.ft",
+                saleType: "Resale projects",
+                owner: "By Owner",
+                managedBy: "Managed by Realezi",
+                developer: "By Suri Buildtech",
+                developerType: "Developer",
+                image: "./assets/image/bedroom.png",
+                developerImage: "./assets/image/devimg.png",
+                btnType: "Download Brochure",
+            },
+            {
+                priceRange: "Rs. 2 Cr - Rs. 3.5 Cr",
+                propertyType: "Independents",
+                bhkType: "6 BHK",
+                area: "2100 sq. ft",
+                averagePricePerSqFt: "Rs. 6.65k/sq.ft",
+                possessionStage: "Under construction",
+                sizes: "900 sq.ft - 1400 sq.ft",
+                saleType: "Resale projects",
+                owner: "By Owner",
+                managedBy: "Managed by Realezi",
+                developer: "By Suri Buildtech",
+                developerType: "Developer",
+                image: "./assets/image/bedroom.png",
+                developerImage: "./assets/image/devimg.png",
+                btnType: "Download Brochure",
+                extra: true,
+            },
+            {
+                priceRange: "Rs. 2 Cr - Rs. 3.5 Cr nee",
+                propertyType: "Independent",
+                bhkType: "4BHK",
+                area: "2100 sq. ft",
+                averagePricePerSqFt: "Rs. 6.65k/sq.ft",
+                possessionStage: "Under construction",
+                sizes: "900 sq.ft - 1400 sq.ft",
+                saleType: "Resale projects",
+                owner: "By Owner",
+                managedBy: "Managed by Realezi",
+                developer: "By Suri Buildtech",
+                developerType: "Developer",
+                image: "./assets/image/bedroom.png",
+                developerImage: "./assets/image/devimg.png",
+                btnType: "Download Brochure",
+            },
+        ];
+
+        let filters = {};
+
+        function createPropertyListing(property) {
+            return `
+                <div class="propertyListingGrid">
+                    <div class="leftImage">
+                        <img src="${property.image}" alt="bedroom" />
+                    </div>
+                    <div class="rightText">
+                        <div class="btnsMAin">
+                            <p class="priceRange">${property.priceRange}</p>
+                            <div class="icons">
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        fill="currentColor"
+                                        class="bi bi-share"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"
+                                        />
+                                    </svg>
+                                </span>
+                                <span id="toggleIcon" onclick="handleClick(this)">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        fill="currentColor"
+                                        class="bi bi-suit-heart"
+                                        viewBox="0 0 16 16"
+                                    >
+                                        <path
+                                            d="M8 1C4.633-2.599-7.824 6.056 8 15C23.824 6.056 11.367-2.599 8 1z"
+                                        />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <p class="propertyType">${property.propertyType}</p>
+                        <div class="sizes">
+                            <span>${property.area}</span>
+                            <span>${property.averagePricePerSqFt}</span>
+                        </div>
+                        <p class="possessionStarts">
+                            <b>Possession Starts:</b> ${property.possessionStage}
+                        </p>
+                        <p class="sizes">
+                            <b>Sizes: </b>${property.sizes}
+                        </p>
+                        <div class="badges">
+                            <p class="byOwner">${property.owner}</p>
+                            <p class="managedBy">${property.managedBy}</p>
+                        </div>
+                        <div class="developer">
+                            <img src="${property.developerImage}" alt="devimg" />
+                            <p>
+                                <b>${property.developerType}</b>
+                                ${property.developer}
+                            </p>
+                        </div>
+                        <button class="btnPrimary">${property.btnType}</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPropertyListings(properties) {
+            const container = document.getElementById("propertyListingsContainer");
+            container.innerHTML = properties.map(createPropertyListing).join("");
+        }
+
+        function filterProperties() {
+            let filteredProperties = properties;
+            for (const [key, value] of Object.entries(filters)) {
+                filteredProperties = filteredProperties.filter(property => property[key] === value);
+            }
+            renderPropertyListings(filteredProperties);
+        }
+
+        function updateFilters(key, value) {
+            filters[key] = value;
+            filterProperties();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderPropertyListings(properties);
+
+            document.querySelectorAll('.dropdown-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                    const dropdownMenu = button.nextElementSibling;
+                    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!event.target.matches('.dropdown-toggle') && !event.target.matches('.dropdown-menu li')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

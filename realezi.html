@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1600, initial-scale=1.0" />
+    <title>Realezi</title>
+    <link rel="stylesheet" href="./realezi.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="headerContainer">
+        <div class="left">
+          <div class="logo">
+            <img src="./assets/image/logo.png" alt="logo" />
+          </div>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Location
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item active" href="#">Indore</a></li>
+            </ul>
+          </div>
+          <div class="searchmain">
+            <div class="input-group searchBar">
+              <span class="input-group-text" id="basic-addon1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-search"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                  />
+                </svg>
+              </span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search locality, landmark, building or project"
+                aria-label="search"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="listBtn">
+            <button type="button" class="btn btn-primary">List Property</button>
+          </div>
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-list"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="mainContainer">
+        <div class="mainLeft">
+          <div class="breadCrumbs">
+            <p>Home / New Delhi / Flats for Sale in Sector 24 Rohini</p>
+            <p>Showing 1 - 30 of 678</p>
+          </div>
+
+          <div class="listProp">
+            <p>Flats for Sale in Sector 24 Rohini, New Delhi</p>
+
+            <div class="dropdown">
+              <span>Sort by:</span>
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Relevance
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="filters">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="propertyTypeButton"
+              >
+                Property Type
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('propertyType', 'Apartment', 'propertyTypeButton')"
+                >
+                  Apartment
+                </li>
+                <li
+                  onclick="updateFilters('propertyType', 'Duplex', 'propertyTypeButton')"
+                >
+                  Duplex
+                </li>
+                <li
+                  onclick="updateFilters('propertyType', 'Penthouse', 'propertyTypeButton')"
+                >
+                  Penthouse
+                </li>
+                <li
+                  onclick="updateFilters('propertyType', 'Villa', 'propertyTypeButton')"
+                >
+                  Villa
+                </li>
+                <li
+                  onclick="updateFilters('propertyType', 'Studio', 'propertyTypeButton')"
+                >
+                  Studio
+                </li>
+                <li
+                  onclick="updateFilters('propertyType', 'Independent','propertyTypeButton')"
+                >
+                  Independent
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="bhkTypeButton"
+              >
+                BHK Type
+              </button>
+              <ul class="dropdown-menu">
+                <li onclick="updateFilters('bhkType', '1RK','bhkTypeButton')">
+                  1RK
+                </li>
+                <li onclick="updateFilters('bhkType', '1BHK','bhkTypeButton')">
+                  1BHK
+                </li>
+                <li onclick="updateFilters('bhkType', '2BHK','bhkTypeButton')">
+                  2BHK
+                </li>
+                <li onclick="updateFilters('bhkType', '3BHK','bhkTypeButton')">
+                  3BHK
+                </li>
+                <li
+                  onclick="updateFilters('bhkType', '3.5BHK','bhkTypeButton')"
+                >
+                  3.5BHK
+                </li>
+                <li onclick="updateFilters('bhkType', '4BHK','bhkTypeButton')">
+                  4BHK
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="priceRangeButton"
+              >
+                Budget
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('priceRangeFilter', '1CR','priceRangeButton')"
+                >
+                  1CR
+                </li>
+                <!-- Add more budget options here -->
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="saleTypeButton"
+              >
+                Sale Type
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('saleType', 'New projects','saleTypeButton')"
+                >
+                  New projects
+                </li>
+                <li
+                  onclick="updateFilters('saleType', 'Resale projects','saleTypeButton')"
+                >
+                  Resale projects
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="possessionStageButton"
+              >
+                Possession Stage
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('possessionStage', 'Ready to move','possessionStageButton')"
+                >
+                  Ready to move
+                </li>
+                <li
+                  onclick="updateFilters('possessionStage', 'Under construction','possessionStageButton')"
+                >
+                  Under construction
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- <div class="filters">
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Property Type
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span>Apartment</span>
+                </li>
+                <li>
+                  <span>Duplex</span>
+                </li>
+                <li>
+                  <span>Penthouse</span>
+                </li>
+                <li>
+                  <span>Villa</span>
+                </li>
+                <li>
+                  <span>Studio</span>
+                </li>
+                <li>
+                  <span>Independent</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                BHK Type
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span>1RK</span>
+                </li>
+                <li>
+                  <span>1BHK</span>
+                </li>
+                <li>
+                  <span>2BHK</span>
+                </li>
+                <li>
+                  <span>3BHK</span>
+                </li>
+                <li>
+                  <span>3.5BHK</span>
+                </li>
+                <li>
+                  <span>4BHK</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Budget
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span>1 CR</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sale Type
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span>New projects</span>
+                </li>
+                <li>
+                  <span>Resale projects</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Possession Stage
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span>Ready to move</span>
+                </li>
+                <li>
+                  <span>Under construction</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="icons">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-grid"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-list-ul"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2m0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2"
+                />
+              </svg>
+            </div>
+          </div> -->
+
+          <a
+            href="https://housing.com/buy-600-sqft-1-rk-villa-in-rau-for-rs-2400000-rid-13923543"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="propertyListingGrid">
+              <div class="leftImage">
+                <img src="./assets/image/bedroom.png" alt="bedroom" />
+              </div>
+              <div class="rightText">
+                <div class="btnsMAin">
+                  <p class="priceRange">Rs.2 Cr - Rs.3.5 Cr</p>
+                  <div class="icons">
+                    <button>Sponsored</button>
+                  </div>
+                </div>
+
+                <div class="rera">
+                  <p class="propertyType">6 BHK Independent Building Floor</p>
+                  <div class="icons">
+                    <button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="green"
+                        class="bi bi-check2"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
+                        />
+                      </svg>
+                      RERA
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ownerDiv">
+                  <p class="owner">By Owner</p>
+                  <p class="manBtn">Managed by Realezi</p>
+                </div>
+
+                <div class="specification">
+                  <div class="specs">
+                    <p>AREA</p>
+                    <p>2100 sq. ft</p>
+                  </div>
+                  <div class="specs">
+                    <p>AVERAGE PRICE</p>
+                    <p>Rs. 6.65k/sq.ft</p>
+                  </div>
+                  <div class="specs">
+                    <p>POSSESSION STARTS</p>
+                    <p>Under construction</p>
+                  </div>
+                  <div class="specs">
+                    <p>SIZES</p>
+                    <p>2100 sq. ft</p>
+                  </div>
+                </div>
+
+                <div class="dashed-line"></div>
+                <div class="lastFold">
+                  <div class="devImg">
+                    <div class="details">
+                      <p>
+                        Discover a realm of and thriving convenience... more
+                      </p>
+                    </div>
+                  </div>
+                  <div class="btns">
+                    <button class="cta">
+                      Interested
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-right"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <div id="propertyListingsContainer"></div>
+
+          <div class="dealImage">
+            <img src="./assets/image/deal.png" alt="" srcset="" />
+          </div>
+        </div>
+        <div class="mainRight">
+          <div class="advanceFilters">
+            <p class="title">Advance filters</p>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="advBathroom"
+              >
+                Bathrooms
+              </button>
+              <ul class="dropdown-menu">
+                <li onclick="updateFilters('advBathroom', '1+','advBathroom')">
+                  <span>1+</span>
+                </li>
+                <li onclick="updateFilters('advBathroom', '2+','advBathroom')">
+                  <span>2+</span>
+                </li>
+                <li onclick="updateFilters('advBathroom', '3+','advBathroom')">
+                  <span>3+</span>
+                </li>
+                <li onclick="updateFilters('advBathroom', '4+','advBathroom')">
+                  <span>4+</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="advAgeOfProperty"
+              >
+                Age of Property
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('advAgeOfProperty', 'Less than 1 year','advAgeOfProperty')"
+                >
+                  <span>Less than 1 year</span>
+                </li>
+
+                <li
+                  onclick="updateFilters('advAgeOfProperty', 'Less than 3 year','advAgeOfProperty')"
+                >
+                  <span>Less than 3 year</span>
+                </li>
+
+                <li
+                  onclick="updateFilters('advAgeOfProperty', 'Less than 5 year','advAgeOfProperty')"
+                >
+                  <span>Less than 5 year</span>
+                </li>
+
+                <li
+                  onclick="updateFilters('advAgeOfProperty', 'Less than 10 year','advAgeOfProperty')"
+                >
+                  <span>Less than 10 year</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="saleType"
+              >
+                Built up Area
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('saleType', 'New projects','saleType')"
+                >
+                  <span>New projects</span>
+                </li>
+
+                <li
+                  onclick="updateFilters('saleType', 'Resale projects','saleType')"
+                >
+                  <span>Resale projects</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="advFacing"
+              >
+                Facing
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('advFacing', 'North Facing','advFacing')"
+                >
+                  <span>North Facing</span>
+                </li>
+                <li
+                  onclick="updateFilters('advFacing', 'East Facing','advFacing')"
+                >
+                  <span>East Facing</span>
+                </li>
+                <li
+                  onclick="updateFilters('advFacing', 'West Facing','advFacing')"
+                >
+                  <span>West Facing</span>
+                </li>
+                <li
+                  onclick="updateFilters('advFacing', 'South Facing','advFacing')"
+                >
+                  <span>South Facing</span>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="advAmenities"
+              >
+                Amenities
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  onclick="updateFilters('advAmenities', 'Housekeeping','advAmenities')"
+                >
+                  <span>Housekeeping</span>
+                </li>
+                <li
+                  onclick="updateFilters('advAmenities', 'Wifi','advAmenities')"
+                >
+                  <span>Wifi</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="featuredProperties">
+            <p class="title">Featured Properties</p>
+
+            <div class="featureMain">
+              <div class="featureCards">
+                <div class="featureImg">
+                  <img src="./assets/image/bedroom.png" alt="bedroom" />
+                </div>
+                <h3>Semi furnished 1 BHK in ...</h3>
+                <h4>2000sq ft, Rohini......</h4>
+              </div>
+              <div class="featureCards">
+                <div class="featureImg">
+                  <img src="./assets/image/bedroom.png" alt="bedroom" />
+                </div>
+                <h3>Semi furnished 1 BHK in ...</h3>
+                <h4>2000sq ft, Rohini......</h4>
+              </div>
+            </div>
+            <div class="viewMoreBtn">
+              <button>
+                View More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="featuredProperties">
+            <p class="title">Hot Selling Properties</p>
+
+            <div class="featureMain">
+              <div class="featureCards">
+                <div class="featureImg">
+                  <img src="./assets/image/bedroom.png" alt="bedroom" />
+                </div>
+                <h3>Semi furnished 1 BHK in ...</h3>
+                <h4>2000sq ft, Rohini......</h4>
+              </div>
+              <div class="featureCards">
+                <div class="featureImg">
+                  <img src="./assets/image/bedroom.png" alt="bedroom" />
+                </div>
+                <h3>Semi furnished 1 BHK in ...</h3>
+                <h4>2000sq ft, Rohini......</h4>
+              </div>
+            </div>
+            <div class="viewMoreBtn">
+              <button>
+                View More
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-arrow-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="offerMain">
+            <img src="./assets/image/off1.png" alt="off1" />
+          </div>
+
+          <div class="offerMain">
+            <img src="./assets/image/off2.png" alt="off2" />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer1">
+        <div class="footCard">
+          <div class="footitems">
+            <h3>Community</h3>
+            <p>Builders </p>
+            <p>Vendors </p>
+            <p>Customers</p>
+          </div>
+          <div class="footitems">
+            <h3>Solutions</h3>
+            <p>Find a right property</p>
+            <p>Sell your property</p>
+            <p>Build your home from scratch </p>
+            <p>Interior Designing & Decor</p>
+            <p>Solar Panel</p>
+          </div>
+          <div class="footitems">
+            <h3></h3>
+            <p>Legal Aid </p>
+            <p>Porter Services </p>
+            <p>For Builders & Channel</p>
+            <p>Partners</p>
+          </div>
+          <div class="footitems">
+            <h3>Company</h3>
+            <p>About us</p>
+            <p>Blog</p>
+            <p>Contact support</p>
+            <p>FAQs</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer2">
+        <div class="fLeft">
+          <h4>About Us</h4>
+          <p>
+            Join our referral program and earn rewards for every friend you
+            bring to our design family. Share the joy of transforming spaces
+            togetherJoin our referral program and earn rewards for every friend
+            you bring to our design family.
+          </p>
+        </div>
+        <div class="fRight">
+          <h5>EXPERIENCE SQUAREYARDS APP ON MOBILE</h5>
+          <div class="imageFilter">
+            <img src="./assets/image/app-store.png" alt="" srcset="" />
+            <img src="./assets/image/google-play.png" alt="" srcset="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="footer3">
+        <div class="logo">
+          <img src="./assets/image/footerLogo.png" alt="" srcset="" />
+        </div>
+        <div class="company">
+          <p>Privacy policies</p>
+          <p>Terms and conditions</p>
+          <p>Disclaimer</p>
+        </div>
+        <div class="socials">
+          <span>
+            <i class="bi bi-facebook"></i>
+          </span>
+          <span>
+            <i class="bi bi-linkedin"></i>
+          </span>
+          <span>
+            <i class="bi bi-youtube"></i>
+          </span>
+          <span>
+            <i class="bi bi-instagram"></i>
+          </span>
+        </div>
+      </div>
+
+      <p class="last">©2024 Realezi. All rights reserved</p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./realezi.js"></script>
+  </body>
+</html>
