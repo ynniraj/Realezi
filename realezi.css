@@ -887,7 +887,9 @@ a {
   .btns .cta {
     padding: 8px 16px;
   }
-
+  .btns .seller {
+    padding: 6px 10px;
+  }
   .rera {
     justify-content: space-between;
   }
