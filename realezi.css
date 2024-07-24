@@ -727,3 +727,210 @@ a {
   margin-top: 20px;
   text-align: center;
 }
+
+.serachIcon {
+  color: white;
+  display: none;
+}
+
+@media screen and (max-width: 560px) {
+  .searchmain {
+    display: none;
+  }
+  .modal-open {
+    padding-right: 0 !important;
+  }
+
+  .modal {
+    padding-right: 0 !important;
+  }
+
+  .headerContainer .dropdown {
+    padding: 0;
+  }
+  .logo {
+    padding: 0;
+    padding: 10px;
+    width: 200px;
+  }
+  .right .icon {
+    margin-right: 10px;
+  }
+  .right .listBtn {
+    display: none;
+  }
+  .modalMain button {
+    background-color: transparent;
+    border: none;
+  }
+  .serachIcon {
+    display: block;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .listProp .dropdown {
+    display: none;
+  }
+
+  .listProp p {
+    font-size: 16px;
+  }
+
+  .filters {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-top: 0;
+    overflow: scroll;
+  }
+  .filtersPhone {
+    display: block !important;
+    margin-top: 0;
+  }
+  .filtersPhone .dropdown button {
+    margin-bottom: 20px;
+    border: 1px solid #6b6d72;
+  }
+
+  .filtersPhone .dropdown-menu.show {
+    transform: translate3d(0, 38px, 0px) !important;
+    width: 100%;
+    overflow: scroll;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .mainRight {
+    display: none;
+  }
+  .mainContainer .mainLeft {
+    width: 100%;
+  }
+
+  .propertyListingGrid {
+    display: block;
+    height: unset;
+    margin-top: 20px;
+  }
+
+  .filters .dropdown-menu.show {
+    display: flex;
+    width: 400px;
+    justify-content: space-evenly;
+    border: none;
+    overflow: scroll;
+  }
+
+  .propertyListingGrid .leftImage {
+    width: 100%;
+    height: 250px;
+  }
+
+  .propertyListingGrid .rightText {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .propertyListingGrid .rightText .propertyType {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .propertyListingGrid .specification {
+    display: grid;
+    width: 100%;
+    margin-top: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .propertyListingGrid .specification .specs {
+    border-right: 2px solid black;
+    width: 100%;
+  }
+
+  .propertyListingGrid .specification .specs {
+    margin-top: 10px;
+  }
+  .propertyListingGrid .specification .specs:not(:first-child) {
+    margin-left: 0;
+  }
+  .propertyListingGrid .specification .specs:nth-child(2) {
+    margin-left: 10px;
+    border: none;
+  }
+  .propertyListingGrid .specification .specs:nth-child(4) {
+    margin-left: 10px;
+  }
+
+  .devImg .details {
+    display: none;
+  }
+  .devImg .img {
+    display: none;
+  }
+  .lastFold {
+    display: block;
+  }
+  .lastFold .btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .btFirst {
+    width: 100%;
+  }
+  .btFirst:nth-child(2) {
+    display: none;
+  }
+  .btns .cta {
+    padding: 8px 16px;
+  }
+
+  .rera {
+    justify-content: space-between;
+  }
+
+  .footCard {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer2 {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    display: block;
+    /* justify-content: space-between; */
+  }
+  .fLeft {
+    width: 100%;
+  }
+
+  .footer3 {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+  }
+  .footer3 .company {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .footer3 .company p {
+    margin-left: 0;
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .footer3 .socials span {
+    margin-right: 10px;
+    font-size: 25px;
+  }
+}

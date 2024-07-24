@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1600, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Realezi</title>
     <link rel="stylesheet" href="./realezi.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -73,6 +73,8 @@
             <button type="button" class="btn btn-primary">List Property</button>
           </div>
           <div class="icon">
+            <i class="bi bi-search serachIcon"></i>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -228,12 +230,12 @@
                 <li
                   onclick="updateFilters('saleType', 'New projects','saleTypeButton')"
                 >
-                  New projects
+                  New
                 </li>
                 <li
                   onclick="updateFilters('saleType', 'Resale projects','saleTypeButton')"
                 >
-                  Resale projects
+                  Resale
                 </li>
               </ul>
             </div>
@@ -405,6 +407,8 @@
             </div>
           </div> -->
 
+          <div id="propertyListingsContainer"></div>
+
           <a
             href="https://housing.com/buy-600-sqft-1-rk-villa-in-rau-for-rs-2400000-rid-13923543"
             target="_blank"
@@ -498,8 +502,6 @@
               </div>
             </div>
           </a>
-
-          <div id="propertyListingsContainer"></div>
 
           <div class="dealImage">
             <img src="./assets/image/deal.png" alt="" srcset="" />
