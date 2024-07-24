@@ -10,7 +10,7 @@ const properties = [
     saleType: "New projects",
     owner: "By Owner",
     managedBy: "Managed by Realezi",
-    developer: "By Suri Buildtech",
+    developer: "By Suri ",
     developerType: "Developer",
     image: "./assets/image/bedroom.png",
     developerImage: "./assets/image/devimg.png",
@@ -33,7 +33,7 @@ const properties = [
     saleType: "Resale projects",
     owner: "By Owner",
     managedBy: "Managed by Realezi",
-    developer: "By Suri Buildtech",
+    developer: "By Suri",
     developerType: "Developer",
     image: "./assets/image/bedroom.png",
     developerImage: "./assets/image/devimg.png",
@@ -54,7 +54,7 @@ const properties = [
     saleType: "Resale projects",
     owner: "By Owner",
     managedBy: "Managed by Realezi",
-    developer: "By Suri Buildtech",
+    developer: "By Suri",
     developerType: "Developer",
     image: "./assets/image/bedroom.png",
     developerImage: "./assets/image/devimg.png",
@@ -224,7 +224,7 @@ rel="noreferrer">
       <div class="bottomMain">
         <div class="bottomCont">
           <div class="bottomDtl">
-            <p>See more properties from Suri Buildtech</p>
+            <p>See more properties from Suri</p>
             <p class="linkBtn">See all properties</p>
           </div>
           <div class="bottomDetails">
